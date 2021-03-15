@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { AppService } from './app.service';
 import { DataTableModule } from 'angular-6-datatable';
 import { HttpClientModule } from '@angular/common/http';
-import { of } from 'rxjs';
-import { throwError } from 'rxjs';
+import { of , throwError } from 'rxjs';
+import { AppMessages } from './app.messages';
 let component: AppComponent;
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -35,7 +35,7 @@ describe('AppComponent', () => {
     component.searchText = 'al';
     component.notifyMessage = 'hello';
     component.searchResults();
-    expect(component.notifyMessage).toBe('Please provide atleast 3 chars to search');
+    expect(component.notifyMessage).toBe(AppMessages.TEXT_FIELD_INFO);
   });
 
   it('should call searchResults to notify user message', () => {
